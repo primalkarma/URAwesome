@@ -13,35 +13,27 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Spacer()
-            Image(systemName: image)
+            Image(image)
                 .resizable()
                 .scaledToFit()
-                .foregroundStyle(.purple)
+                .clipShape(RoundedRectangle(cornerRadius: 50))
+                .shadow(radius: 30)
             Text(message)
                 .font(.largeTitle)
-                .fontWeight(.light)
+                .fontWeight(.heavy)
                 .foregroundStyle(.brown)
             Spacer()
             Button ("Click Me") {
                 let message1 = "You Are Awesome"
                 let message2 = "You Are Great"
-                let image1 = "sun.max.fill"
-                let image2 = "hand.thumbsup"
+                let image1 = "image0"
+                let image2 = "image1"
                 
-//                if message == message1 {
-//                    message = message2
-//                    image = image2
-//                }
-//                else{
-//                    message = message1
-//                    image = image1
-//                }
                 message = (message == message1 ? message2 : message1)
                 image = (message == message1 ? image1 : image2)
             }
             .buttonStyle(.borderedProminent)
             .font(.title2)
-            .tint(.orange)
         }
         .padding()
     }
