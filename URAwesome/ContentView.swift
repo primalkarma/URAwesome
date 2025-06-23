@@ -13,33 +13,31 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Spacer()
-            Text("Whats So Funny 'Bout ?")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-            Spacer()
             Image(systemName: image)
                 .resizable()
                 .scaledToFit()
                 .foregroundStyle(.purple)
-                .frame(width: 300, height: 300)
             Text(message)
                 .font(.largeTitle)
                 .fontWeight(.light)
                 .foregroundStyle(.brown)
             Spacer()
-            HStack {
-                Button ("Peace") {
-                    message = "Peace"
-                    image = "peacesign"
-                }
-                Button ("Love") {
-                    message = "Love"
-                    image = "heart"
-                }
-                Button ("Understanding") {
-                    message = "Understanding"
-                    image = "lightbulb"
-                }
+            Button ("Click Me") {
+                let message1 = "You Are Awesome"
+                let message2 = "You Are Great"
+                let image1 = "sun.max.fill"
+                let image2 = "hand.thumbsup"
+                
+//                if message == message1 {
+//                    message = message2
+//                    image = image2
+//                }
+//                else{
+//                    message = message1
+//                    image = image1
+//                }
+                message = (message == message1 ? message2 : message1)
+                image = (message == message1 ? image1 : image2)
             }
             .buttonStyle(.borderedProminent)
             .font(.title2)
