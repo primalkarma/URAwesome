@@ -10,6 +10,8 @@ import SwiftUI
 struct ContentView: View {
     @State private var message = ""
     @State private var image = ""
+    @State private var inumber = 0
+    @State private var mnumber = 0
     var body: some View {
         VStack {
             Spacer()
@@ -22,18 +24,35 @@ struct ContentView: View {
                 .font(.largeTitle)
                 .fontWeight(.heavy)
                 .foregroundStyle(.brown)
+                .multilineTextAlignment(.center)
             Spacer()
             Button ("Click Me") {
-                let message1 = "You Are Awesome"
-                let message2 = "You Are Great"
-                let image1 = "image0"
-                let image2 = "image1"
+                let messages = [
+                    "You are awesome",
+                    "You are great",
+                    "Hello Swifter",
+                    "Don't give up",
+                    "Keep going",
+                    "You are almost there",
+                    "There is glory at the end of the tunnel",
+                    "It is worthwhile",
+                    "I am proud of you"]
                 
-                message = (message == message1 ? message2 : message1)
-                image = (message == message1 ? image1 : image2)
+                message  = messages[mnumber]
+                mnumber += 1
+                if mnumber == messages.count {
+                    mnumber = 0
+                }
+                image = "image\(inumber)"
+                inumber += 1
+                if inumber > 9 {
+                    inumber = 0
+                }
+                
+                
             }
             .buttonStyle(.borderedProminent)
-            .font(.title2)
+            .font(.title)
         }
         .padding()
     }
