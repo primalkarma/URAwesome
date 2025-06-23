@@ -16,19 +16,23 @@ struct ContentView: View {
                 .resizable()
                 .scaledToFit()
                 .foregroundStyle(.tint)
+                .frame(width: 200, height: 200)
             Spacer()
             Text(message)
                 .font(.largeTitle)
                 .fontWeight(.light)
                 .foregroundStyle(.brown)
-            Button ("Tap Me") {
-                message = "I am Awesome"
-                print(message)
+            HStack {
+                Button ("Awesome") {
+                    message = "I am Awesome"
+                }
+                Button ("Great") {
+                    message = "I am Great"
+                }
             }
-            .padding()
-            .background(Color.blue)
-            .foregroundStyle(.white)
-            .cornerRadius(10)
+            .buttonStyle(.borderedProminent)
+            .font(.title2)
+            .tint(.orange)
         }
         .padding()
     }
