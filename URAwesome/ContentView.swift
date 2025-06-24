@@ -10,8 +10,8 @@ import SwiftUI
 struct ContentView: View {
     @State private var message = ""
     @State private var image = ""
-    @State private var inumber = 0
-    @State private var mnumber = 0
+    @State private var lastinumber = -1
+    @State private var lastmnumber = -1 //lastmnumber will never be -1
     var body: some View {
         VStack {
             Spacer()
@@ -37,12 +37,25 @@ struct ContentView: View {
                     "There is glory at the end of the tunnel",
                     "It is worthwhile",
                     "I am proud of you"]
+//                generate a random number to use as an index
+//                if mnumber == lastmnumber {
+//                keep generating a new random mnumber until
+//                mnumber != lastmnumber
+//                set message = messages[mnumber]
+//                update lastmnumber with mnumber
+                var mnumber:Int
+                repeat {
+                    mnumber = Int.random(in: 0...messages.count-1)
+                } while mnumber == lastmnumber
+                message = messages[mnumber]
+                lastmnumber = mnumber
                 
-                message  = messages[Int.random(in: 0...messages.count-1)]
-                
-                
-                image = "image\(Int.random(in: 0...9))"
-                inumber += 1
+                var inumber:Int
+                repeat {
+                    inumber = Int.random(in: 0...9)
+                } while inumber == lastinumber
+                image = "image\(inumber)"
+                lastinumber = inumber
                 
                 
                 
