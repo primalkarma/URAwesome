@@ -38,16 +38,12 @@ struct ContentView: View {
                     "It is worthwhile",
                     "I am proud of you"]
                 
-                message  = messages[mnumber]
-                mnumber += 1
-                if mnumber == messages.count {
-                    mnumber = 0
-                }
-                image = "image\(inumber)"
+                message  = messages[Int.random(in: 0...messages.count-1)]
+                
+                
+                image = "image\(Int.random(in: 0...9))"
                 inumber += 1
-                if inumber > 9 {
-                    inumber = 0
-                }
+                
                 
                 
             }
